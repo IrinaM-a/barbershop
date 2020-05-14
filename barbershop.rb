@@ -12,7 +12,7 @@ post '/' do
       @title = "Thank you"
       @message ="Dear #{@user_name}, we'll be waiting for you at  #{@date_time}"
       
-      @f = File.open 'users.txt', 'a'
+      @f = File.open './public/users.txt', 'a'
       @f.write "User: #{@user_name}, Phone: #{@phone}, Date and time: #{@date_time}"
       @f.close
       
@@ -28,7 +28,7 @@ post '/admin' do
       @password = params[:password]
 
       if @email == 'metlyakova-i@mail.ru' && @password == 'angel123'
-            @a = File.readlines 'users.txt'
+            @a = File.readlines './public/users.txt'
             erb :welcome
       else
             erb :admin
